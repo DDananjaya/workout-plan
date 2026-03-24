@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Workout Routine</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --accent-primary: #ff5722;
+            --accent-secondary: #03dac6;
+            --table-header: #2c2c2c;
+            --table-border: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #ff9800;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--accent-secondary);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        h3::before {
+            content: '⚡';
+            margin-right: 8px;
+        }
+
+        .day-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+
+        .warmup-note {
+            background-color: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid #ff9800;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-style: italic;
+            border-radius: 0 4px 4px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            background-color: #181818;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--table-border);
+        }
+
+        th {
+            background-color: var(--table-header);
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #252525;
+        }
+
+        .reps-special {
+            color: #ffb74d;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .day-card {
+                padding: 15px;
+            }
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Training Program</h1>
+
+        <!-- DAY 01 -->
+        <div class="day-card">
+            <h2>Day 01</h2>
+            <div class="warmup-note">
+                <strong>Warm-up:</strong> 20 x 3 Pushups before starting the workouts
+            </div>
+
+            <h3>Chest Workouts</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Barbell Decline Bench Press</td><td>04</td><td>10</td></tr>
+                    <tr><td>Cable Crossover Fly</td><td>03</td><td>10</td></tr>
+                    <tr><td>Decline Dumbbell Fly</td><td>03</td><td>10</td></tr>
+                    <tr><td>Barbell Incline Bench Press</td><td>04</td><td>10</td></tr>
+                    <tr><td>Dumbbell Fly</td><td>03</td><td>06</td></tr>
+                    <tr><td>Machine Fly</td><td>03</td><td>08</td></tr>
+                    <tr><td>Svend Press</td><td>04</td><td>20</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Triceps Workouts</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Standing Triceps Extension</td><td>04</td><td>15</td></tr>
+                    <tr><td>Cable V Bar Triceps Extension</td><td>03</td><td>15</td></tr>
+                    <tr><td>Dumbbell Kickbacks</td><td>03</td><td>08</td></tr>
+                    <tr><td>Single Arm Dumbbell Triceps Extension</td><td>03</td><td>06</td></tr>
+                    <tr><td>Dips</td><td colspan="2">As many as you can</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- DAY 02 -->
+        <div class="day-card">
+            <h2>Day 02</h2>
+
+            <h3>Back Workout</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lat Pulldown (V bar)</td>
+                        <td>03</td>
+                        <td>10, 10, <span class="reps-special">(06, 06, 06) Drop set on last</span></td>
+                    </tr>
+                    <tr><td>Cable Row</td><td>04</td><td>10</td></tr>
+                    <tr><td>One arm Dumbbell Row</td><td>03</td><td>10</td></tr>
+                    <tr><td>Back Extensions</td><td>03</td><td>10</td></tr>
+                    <tr><td>Hammer strength High Row</td><td>03</td><td>10</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Shoulders Workouts</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Dumbbell Shoulder Raise</td><td>03</td><td>10</td></tr>
+                    <tr><td>Barbell Shoulder Press</td><td>04</td><td>10</td></tr>
+                    <tr><td>Up right Rowing</td><td>03</td><td>10</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Arms Workout</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Barbell curl</td>
+                        <td>03</td>
+                        <td>08, 08, <span class="reps-special">(06, 06, 06)</span></td>
+                    </tr>
+                    <tr><td>Hammer Curls</td><td>03</td><td>10</td></tr>
+                    <tr><td>Cross Body Hammer Curls</td><td>03</td><td>10</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
