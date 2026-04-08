@@ -6,124 +6,175 @@
     <title>My Workout Routine</title>
     <style>
         :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --text-main: #e0e0e0;
-            --accent-primary: #ff5722;
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 30, 30, 0.65);
+            --text-main: #e5e7eb;
+
+            --accent-primary: linear-gradient(135deg,#ff5722,#ff9800);
             --accent-secondary: #03dac6;
-            --table-header: #2c2c2c;
-            --table-border: #333333;
+
+            --table-header: rgba(44,44,44,0.9);
+            --table-border: rgba(255,255,255,0.08);
         }
 
+        /* Background */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
+            background: radial-gradient(circle at top left, #1e293b, #020617);
             color: var(--text-main);
             margin: 0;
             padding: 20px;
             line-height: 1.6;
         }
 
+        /* Layout */
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
+        /* Title */
         h1 {
             text-align: center;
-            color: var(--accent-primary);
+            background: var(--accent-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            font-weight: 800;
         }
 
+        /* Section headers */
         h2 {
-            color: #ff9800;
-            border-bottom: 2px solid var(--accent-primary);
+            color: #ffb74d;
+            border-bottom: 2px solid transparent;
+            border-image: var(--accent-primary);
+            border-image-slice: 1;
             padding-bottom: 10px;
             margin-top: 0;
+            font-weight: 700;
         }
 
+        /* Sub headers */
         h3 {
             color: var(--accent-secondary);
             margin-top: 25px;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
+            font-weight: 600;
         }
 
         h3::before {
             content: '⚡';
-            margin-right: 8px;
+            margin-right: 10px;
         }
 
+        /* Cards */
         .day-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
+            backdrop-filter: blur(14px);
+            background: var(--card-bg);
+            border-radius: 16px;
             padding: 30px;
             margin-bottom: 40px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            transition: 0.3s ease;
         }
 
+        .day-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.8);
+        }
+
+        /* Warmup box */
         .warmup-note {
-            background-color: rgba(255, 152, 0, 0.1);
+            background: rgba(255, 152, 0, 0.12);
             border-left: 4px solid #ff9800;
-            padding: 10px 15px;
-            margin-bottom: 20px;
+            padding: 12px 16px;
+            margin-bottom: 22px;
             font-style: italic;
-            border-radius: 0 4px 4px 0;
+            border-radius: 6px;
+            transition: 0.3s;
         }
 
+        .warmup-note:hover {
+            background: rgba(255, 152, 0, 0.18);
+        }
+
+        /* Table */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 10px;
-            background-color: #181818;
-            border-radius: 8px;
+            margin-bottom: 14px;
+            background: rgba(24,24,24,0.7);
+            border-radius: 10px;
             overflow: hidden;
+            backdrop-filter: blur(8px);
         }
 
+        /* Table Head */
+        th {
+            background: var(--table-header);
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+
+        /* Cells */
         th, td {
-            padding: 15px;
+            padding: 14px;
             text-align: left;
             border-bottom: 1px solid var(--table-border);
         }
 
-        th {
-            background-color: var(--table-header);
-            color: #ffffff;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9em;
+        /* Table hover */
+        tr:hover td {
+            background: rgba(255,255,255,0.04);
         }
 
+        /* Remove last border */
         tr:last-child td {
             border-bottom: none;
         }
 
-        tr:hover td {
-            background-color: #252525;
-        }
-
+        /* Special text */
         .reps-special {
             color: #ffb74d;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
+        /* Superset label */
         .superset-note {
             color: #03dac6;
-            font-size: 0.85em;
+            font-size: 0.8em;
             font-style: italic;
             display: block;
             margin-top: 4px;
         }
 
+        /* Smooth animations */
+        * {
+            transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+        }
+
+        /* Mobile */
         @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
             .day-card {
-                padding: 15px;
+                padding: 18px;
             }
             th, td {
-                padding: 10px;
+                padding: 9px;
+                font-size: 0.85rem;
+            }
+            h1 {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -271,6 +322,30 @@
                 </tbody>
             </table>
         </div>
-    </div>
+
+        <!-- DAY 04 -->
+        <div class="day-card">
+            <h2>Day 04</h2>
+
+            <h3>ABS Workouts</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Cable Crunch</td><td>03</td><td>30</td></tr>
+                    <tr><td>Decline Bench Sit Up</td><td>03</td><td>20</td></tr>
+                    <tr><td>Weighted Russian Twist</td><td>04</td><td>08</td></tr>
+                    <tr><td>Decline Bench Sit Up With Twist</td><td>03</td><td>10</td></tr>
+                    <tr><td>Pallof Press with Rotation</td><td>03</td><td>10</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div> <!-- End of container -->
 </body>
 </html>
